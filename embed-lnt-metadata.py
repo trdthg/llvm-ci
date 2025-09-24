@@ -11,11 +11,11 @@ data = None
 with open(data_file) as f:
     data = json.load(f)
 
-data['Machine']['Name'] = variant
+data["Machine"]["Name"] = variant
 
-info = data['Run']['Info']
-info['llvm_revision'] = revision
-info['workflow_url'] = url
+info = data["Run"]["Info"]
+info["llvm_revision"] = revision
+info["workflow_url"] = url
 
-with open(data_file, 'w') as f:
+with open(data_file, "w") as f:
     json.dump(data, f)

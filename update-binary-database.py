@@ -11,15 +11,14 @@ dst = sys.argv[2]
 cnt = 0
 for r, ds, fs in os.walk(src):
     for f in fs:
-        path = r + '/' + f
+        path = r + "/" + f
         if os.access(path, os.X_OK) and f.endswith(".stripped"):
             dst_path = None
             with open(path, "rb") as file:
-                dst_path = dst + "/" + \
-                    str(hashlib.md5(file.read()).hexdigest())
+                dst_path = dst + "/" + str(hashlib.md5(file.read()).hexdigest())
             if not os.path.exists(dst_path):
                 bin_full = path.removesuffix(".stripped")
-                print("new binary", bin_full, '->', dst_path)
+                print("new binary", bin_full, "->", dst_path)
                 shutil.copyfile(bin_full, dst_path)
                 cnt += 1
             else:
