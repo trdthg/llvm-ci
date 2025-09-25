@@ -14,6 +14,8 @@ else
 fi
 
 export PATH=$PATH:~/.local/bin
+python3 -m venv .venv
+source .venv/bin/activate
 pip3 install -r requirements.client.txt
 echo "PATH=$PATH" >> $GITHUB_ENV
 echo $(which lnt)
